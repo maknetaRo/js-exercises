@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      main {
+        margin: 3rem auto;
+        max-width: 500px;
+        width: 100%;
+      }
+      input {
+        max-width: 250px;
+        width: 100%;
+        height: 40px;
+        padding: 1rem;
+        font-size: 1.5rem;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        padding-block: 1rem;
+        max-width: 250px;
+        width: 100%;
+      }
+      .answer {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>The program takes random integer between 1 and 10.</p>
+      <p>Can you guess it?</p>
+
+      <input type="number" placeholder="Write a number between 1 and 10" />
+      <div class="row">
+        My number:
+        <p class="my-number"></p>
+      </div>
+      <div class="row">
+        Random number:
+        <p class="random-number"></p>
+      </div>
+
+      <p class="answer"></p>
+    </main>
+
+    <script>
+      const input = document.querySelector("input");
+      const myNumber = document.querySelector(".my-number");
+      const random = document.querySelector(".random-number");
+      const answer = document.querySelector(".answer");
+
+      function guessNumber(number) {
+        const randomNumber = Math.floor(Math.random() * 11);
+        random.innerText = randomNumber;
+        if (number.toString() === randomNumber.toString()) {
+          answer.innerText = "Good work";
+        } else {
+          answer.innerText = "Not matched";
+        }
+      }
+      input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          const inputNumber = e.currentTarget.value;
+          myNumber.innerText = inputNumber;
+          guessNumber(inputNumber);
+        }
+      });
+    </script>
+  </body>
+</html>
