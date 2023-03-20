@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      main {
+        width: 350px;
+        height: 250px;
+        margin: 2rem auto;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+        justify-content: space-between;
+      }
+      input {
+        font-size: 1rem;
+        padding: 0.5rem;
+        margin-block: 0.25rem;
+      }
+      .btn-row {
+        display: flex;
+        justify-content: space-around;
+      }
+      button {
+        width: 120px;
+        padding: 0.25rem 0.5rem;
+      }
+      p {
+        font-size: 1.75rem;
+      }
+      .result {
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h2>Temperature converter</h2>
+      <label for="first">Temperature </label>
+      <input type="number" name="first" id="first" />
+
+      <div class="btn-row">
+        <button class="celsius-to-fahrenheit" type="button">
+          Celsius To Fahrenheit
+        </button>
+        <button class="fahrenheit-to-celsius" type="button">
+          Fahrenheit To Celsius
+        </button>
+      </div>
+
+      <h2>Result</h2>
+      <p>
+        <span class="sentence"></span>
+        <span class="result"></span>
+      </p>
+    </main>
+    <script>
+      const number = document.querySelector("#first");
+      const ctfBtn = document.querySelector(".celsius-to-fahrenheit");
+      const ftcBtn = document.querySelector(".fahrenheit-to-celsius");
+      const resultSpan = document.querySelector(".result");
+      const sentenceSpan = document.querySelector(".sentence");
+
+      const numberFromInput = (elem) => {
+        return elem.value;
+      };
+
+      ctfBtn.addEventListener("click", () => {
+        let temp = numberFromInput(number);
+        sentenceSpan.textContent = `${temp}°C equals`;
+        resultSpan.textContent = `${temp * 1.8 + 32}°F.`;
+      });
+
+      ftcBtn.addEventListener("click", () => {
+        let temp = numberFromInput(number);
+        sentenceSpan.textContent = `${temp}°F equals`;
+        resultSpan.textContent = `${Math.round((temp - 32) * 0.5556)}°C.`;
+      });
+    </script>
+  </body>
+</html>
