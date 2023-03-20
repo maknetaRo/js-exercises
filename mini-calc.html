@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      main {
+        width: 350px;
+        height: 250px;
+        margin: 2rem auto;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+        justify-content: space-between;
+      }
+      input {
+        font-size: 1rem;
+        padding: 0.5rem;
+        margin-block: 0.25rem;
+      }
+      .btn-row {
+        display: flex;
+        justify-content: space-around;
+      }
+      button {
+        width: 120px;
+        padding: 0.25rem 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <label for="first">1st Number</label>
+      <input type="number" name="first" id="first" />
+      <label for="second">2nd Number</label>
+      <input type="number" name="second" id="second" />
+      <div class="btn-row">
+        <button class="multiplication" type="button">Multiplication</button>
+        <button class="division" type="button">Division</button>
+      </div>
+
+      <p>The result is: <span class="result"></span></p>
+    </main>
+
+    <script>
+      const firstNumber = document.querySelector("#first");
+      const secondNumber = document.querySelector("#second");
+      const resultSpan = document.querySelector(".result");
+      const multiplicationBtn = document.querySelector(".multiplication");
+      const divisionBtn = document.querySelector(".division");
+
+      function inputValue(elem) {
+        return elem.value;
+      }
+
+      multiplicationBtn.addEventListener("click", () => {
+        resultSpan.textContent =
+          inputValue(firstNumber) * inputValue(secondNumber);
+      });
+
+      divisionBtn.addEventListener("click", () => {
+        resultSpan.textContent =
+          inputValue(firstNumber) / inputValue(secondNumber);
+      });
+    </script>
+  </body>
+</html>
