@@ -12,5 +12,5 @@ console.log(isEqual("parapet"));
 const isEqual2 = (str) => {
   return str.split("p").length == str.split("t").length ? true : false;
 };
-console.log(isEqual("proton"));
-console.log(isEqual("parapet"));
+console.log(isEqual2("proton"));
+console.log(isEqual2("parapet"));
