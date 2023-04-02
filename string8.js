@@ -10,3 +10,6 @@ const sortLetters = (str) => {
 };
 
 console.log(sortLetters("Javascript"));
+
+// to jest zadanie 55
+// https://www.w3resource.com/javascript-exercises/javascript-basic-exercises.php
